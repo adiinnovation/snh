@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#087f8c">
   <meta name="description" content="Book doctor appointments quickly and easily.">
-  <title>Your Hospital Name | Doctor Appointment Booking</title>
+  <title>Santhi Nursing Home | Doctor Appointment Booking</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,8 +28,8 @@
     .section{padding:22px 18px 4px}.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
     .section h2{font-family:Manrope,sans-serif;font-size:17px;font-weight:800;margin:0;letter-spacing:-.4px}
     .section-sub{font-size:11px;color:var(--muted);margin-top:3px}
-    .filter-row{display:flex;gap:8px;overflow:auto;padding:1px 0 7px;scrollbar-width:none}.filter-row::-webkit-scrollbar{display:none}
-    .filter-btn{white-space:nowrap;border:1px solid var(--line);background:#fff;color:#5e7078;border-radius:30px;padding:8px 13px;font-size:11px;font-weight:700}
+    .filter-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:1px 0 7px;overflow:visible}.filter-row::-webkit-scrollbar{display:none}
+    .filter-btn{width:100%;min-width:0;white-space:normal;line-height:1.25;border:1px solid var(--line);background:#fff;color:#5e7078;border-radius:12px;padding:10px 6px;font-size:11px;font-weight:700;overflow-wrap:anywhere}
     .filter-btn.active{background:var(--teal);border-color:var(--teal);color:white}
     .doctor-card{border:1px solid var(--line);border-radius:18px;padding:13px;margin-bottom:11px;display:flex;gap:12px;background:#fff;transition:.2s}
     .doctor-card:hover{border-color:#b8dedd;box-shadow:0 9px 22px #123f4b0c;transform:translateY(-1px)}
@@ -58,18 +58,20 @@
     .calendar-weekdays span{font-size:9px;color:var(--muted);font-weight:800;padding:5px 0}
     .calendar-day{border:0;background:#f4f8f9;color:var(--ink);border-radius:8px;min-height:31px;font-size:11px;font-weight:700}
     .calendar-day:disabled{background:#f1f3f4;color:#c1c9cc;text-decoration:line-through;cursor:not-allowed}
+    .calendar-day.leave-day:disabled{background:#ffd6d6 !important;color:#b42318 !important;border:1px solid #e5484d !important;box-shadow:inset 0 0 0 1px #e5484d;text-decoration:line-through;opacity:1;cursor:not-allowed}
     .calendar-day:not(:disabled):hover,.calendar-day.selected{background:var(--teal);color:#fff}
     .calendar-day.empty{visibility:hidden}
     .calendar-legend{font-size:9px;color:var(--muted);margin-top:8px;text-align:center}
 
+    @media(max-width:360px){.filter-row{grid-template-columns:repeat(2,minmax(0,1fr))}.filter-btn{font-size:10px;padding:9px 5px}}
     @media(min-width:700px){body{padding:20px 0}.app-shell{border-radius:25px;overflow:hidden;min-height:calc(100vh - 40px)}.topbar{position:relative}.bottom-nav{bottom:20px;border-radius:0 0 25px 25px}.whatsapp-fab{bottom:105px}}
   </style>
 </head>
 <body>
 <div class="app-shell">
   <header class="topbar">
-    <div class="brand"><img class="brand-mark" src="hospital-logo.svg" alt="Hospital logo"><span id="hospitalName">Your Hospital Name</span></div>
-    <div class="location">YOUR HEALTH, OUR PRIORITY<strong>📍 Kerala, India</strong></div>
+    <div class="brand"><img class="brand-mark" src="hospital-logo.svg" alt="Hospital logo"><span id="hospitalName">Santhi Nursing Home</span></div>
+    <div class="location">YOUR HEALTH, OUR PRIORITY<strong>📍 Punnayurkulam, Kerala, India</strong></div>
   </header>
 
   <section class="hero">
@@ -87,11 +89,11 @@
     <div class="filter-row" id="filters">
       <button class="filter-btn active" data-filter="All">All doctors</button>
       <button class="filter-btn" data-filter="General Medicine">General</button>
-      <button class="filter-btn" data-filter="Cardiology">Cardiology</button>
-      <button class="filter-btn" data-filter="Dermatology">Skin</button>
-      <button class="filter-btn" data-filter="Paediatrics">Paediatrics</button>
-      <button class="filter-btn" data-filter="Orthopaedics">Orthopaedics</button>
+      <button class="filter-btn" data-filter="Pediatricics">Pediatricics</button>
       <button class="filter-btn" data-filter="Gynaecology">Gynaecology</button>
+      <button class="filter-btn" data-filter="Dental">Dental</button>
+      <button class="filter-btn" data-filter="Casualty ">Casualty </button>
+      <button class="filter-btn" data-filter="Gastro">Gastro</button>
     </div>
   </section>
 
@@ -104,11 +106,11 @@
     <div id="emptyState" class="empty-state">No doctors found. Try another search or speciality.</div>
   </section>
 
-  <div class="trust-strip">
+  <!--<div class="trust-strip">
     <div class="trust-icon">✓</div>
     <div><strong>Easy appointment requests</strong><span>Your request is sent to our booking team through WhatsApp. Confirmation will be shared separately.</span></div>
-  </div>
-  <div class="px-4 pt-4 text-center"><div class="note">CarePoint is a demo booking interface. Doctor profiles, qualifications, availability and fees must be verified and updated by the clinic before publishing.</div></div>
+  </div>-->
+<div class="px-4 pt-4 text-center"><div class="note"><strong>Phone: 0487-0542280, 2541098, 2540280, Mobile-8606252280, 9447463280</strong> </div></div>
 
   <nav class="bottom-nav" aria-label="Bottom navigation">
     <button class="nav-item active" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="nav-ico">⌂</span>Home</button>
@@ -134,8 +136,8 @@
             <div class="col-12"><label class="form-label" for="patientName">Patient full name *</label><input class="form-control" id="patientName" required placeholder="Enter patient name"></div>
             <div class="col-12"><label class="form-label" for="patientPhone">Mobile number *</label><input class="form-control" id="patientPhone" type="tel" required pattern="[0-9+() -]{8,16}" placeholder="Your contact number"></div>
             <div class="col-12"><label class="form-label" for="opNumber">OP number <span class="text-muted fw-normal">(optional)</span></label><input class="form-control" id="opNumber" type="text" placeholder="Enter OP number if already registered"></div>
-            <div class="col-6"><label class="form-label" for="visitDate">Preferred date *</label><input class="form-control" id="visitDate" type="text" placeholder="Choose date" readonly required autocomplete="off" aria-haspopup="dialog" aria-expanded="false"><div id="datePicker" class="date-picker mt-2" role="dialog" aria-label="Choose appointment date" hidden><div class="calendar-head"><button type="button" id="prevMonth" aria-label="Previous month">‹</button><strong id="calendarMonth"></strong><button type="button" id="nextMonth" aria-label="Next month">›</button></div><div class="calendar-grid calendar-weekdays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div><div id="calendarDays" class="calendar-grid"></div><div class="calendar-legend">Grey dates are not consulting days</div></div></div>
-            <div class="col-6"><label class="form-label" for="visitTime">Preferred time</label><select class="form-select" id="visitTime"><option>Any available time</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
+            <div class="col-6"><label class="form-label" for="visitDate">Preferred date *</label><input class="form-control" id="visitDate" type="text" placeholder="Choose date" readonly required autocomplete="off" aria-haspopup="dialog" aria-expanded="false"><div id="datePicker" class="date-picker mt-2" role="dialog" aria-label="Choose appointment date" hidden><div class="calendar-head"><button type="button" id="prevMonth" aria-label="Previous month">‹</button><strong id="calendarMonth"></strong><button type="button" id="nextMonth" aria-label="Next month">›</button></div><div class="calendar-grid calendar-weekdays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div><div id="calendarDays" class="calendar-grid"></div><div class="calendar-legend"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#d92d20;margin-right:4px"></span> Red = doctor leave &nbsp; • &nbsp; Grey = non-consulting / past dates</div></div></div>
+            <div class="col-6"><label class="form-label" for="visitTime">Preferred time</label><select class="form-select" id="visitTime" required><option value="">Select preferred time</option></select></div>
             <div class="col-12"><div id="availabilityMessage" class="small rounded-3 p-2" style="display:none" role="status" aria-live="polite"></div></div>
             <div class="col-12"><label class="form-label" for="reason">Reason for visit (optional)</label><textarea class="form-control" id="reason" rows="2" placeholder="Briefly describe the reason for appointment"></textarea></div>
           </div>
@@ -151,12 +153,12 @@
 <script>
   // DEMO DATA: replace these sample profiles and photo URLs with verified clinic information.
   const doctors = [
-    {id:1,name:"Dr. Anjali Menon",degree:"MBBS, MD (General Medicine)",specialty:"General Medicine",experience:"10+ years",fee:"Clinic to confirm",days:["Monday","Wednesday","Friday"],photo:"https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=340&fit=crop&crop=faces"},
-    {id:2,name:"Dr. Rahul Nair",degree:"MBBS, MD (Cardiology)",specialty:"Cardiology",experience:"12+ years",fee:"Clinic to confirm",days:["Tuesday","Thursday","Saturday"],photo:"https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=340&fit=crop&crop=faces"},
-    {id:3,name:"Dr. Meera Krishnan",degree:"MBBS, MD (Dermatology)",specialty:"Dermatology",experience:"8+ years",fee:"Clinic to confirm",days:["Monday","Thursday"],photo:"https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=300&h=340&fit=crop&crop=faces"},
-    {id:4,name:"Dr. Vishnu Kumar",degree:"MBBS, MD (Paediatrics)",specialty:"Paediatrics",experience:"9+ years",fee:"Clinic to confirm",days:["Monday","Wednesday","Saturday"],photo:"https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300&h=340&fit=crop&crop=faces"},
-    {id:5,name:"Dr. Sreelakshmi Das",degree:"MBBS, MS (Orthopaedics)",specialty:"Orthopaedics",experience:"11+ years",fee:"Clinic to confirm",days:["Tuesday","Friday"],photo:"https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=300&h=340&fit=crop&crop=faces"},
-    {id:6,name:"Dr. Nisha Varma",degree:"MBBS, MS (Obstetrics & Gynaecology)",specialty:"Gynaecology",experience:"10+ years",fee:"Clinic to confirm",days:["Wednesday","Thursday","Saturday"],photo:"https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=300&h=340&fit=crop&crop=faces"}
+    {id:1,name:"Dr. Rajesh Krishnan",degree:"MBBS, MD (General Medicine)",specialty:"General Medicine",experience:"10+ years",fee:"Clinic to confirm",days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],leaveDates:["2026-11-09"],preferredTimes:["Morning","Evening"],specialSessions:{"2026-11-11":["Morning"]},photo:"https://www.santhinursinghome.com/uploads/doctors/6aa3dd406456e9541a532e64f2dea5c4.jpeg"},
+    {id:2,name:"Dr. Shgaji P S",degree:"MBBS, MD (General Medicine)",specialty:"General Medicine",experience:"12+ years",fee:"Clinic to confirm",days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],leaveDates:[],preferredTimes:["Morning","Evening"],photo:"https://www.santhinursinghome.com/uploads/doctors/c6d52a431360ecc0051ee227228b73b5.jpg"},
+    {id:3,name:"Dr. K R Mukesh",degree:"MBBS, DCH, FAGE ( Pediatricics)",specialty:"Pediatricics",experience:"8+ years",fee:"Clinic to confirm",days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],leaveDates:[],preferredTimes:["Evening"],photo:"	https://www.santhinursinghome.com/uploads/doctors/ab6516b540e727d53f542e6b31a2040f.jpg"},
+    {id:4,name:"Dr. Sreekala Rajesh",degree:"MBBS, DGO (Gynaecology)",specialty:"Gynaecology",experience:"9+ years",fee:"Clinic to confirm",days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],leaveDates:[],preferredTimes:["Morning","Evening"],photo:"	https://www.santhinursinghome.com/uploads/doctors/fd5beff39922ccc8cf93e9307307f9e3.jpg"},
+    {id:5,name:"Dr. M A Vinod",degree:"BDS, MDS (Dental)",specialty:"Dental",experience:"11+ years",fee:"Clinic to confirm",days:["Tuesday","Friday"],leaveDates:[],preferredTimes:["Evening"],photo:"https://www.santhinursinghome.com/uploads/doctors/f05f4e2efbcc09d2d7536546a7f0b2cd.jpg"},
+    {id:6,name:"Dr. Sugadoss",degree:"MBBS (Casualty RMO)",specialty:"Casualty RMO",experience:"10+ years",fee:"Clinic to confirm",days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],leaveDates:[],preferredTimes:["Any available time"],photo:"https://www.santhinursinghome.com/uploads/doctors/1a40ff6c74606b90a4ca73ed0f4520e5.jpg"}
   ];
   let activeFilter = "All";
   let selectedDoctorProfile = null;
@@ -181,6 +183,7 @@
           <span class="specialty">${d.specialty}</span>
           <div class="doctor-meta"><span>✦ ${d.experience}</span><span>₹ ${d.fee}</span></div>
           <div class="doctor-meta"><span>▦ Consulting: ${d.days.join(", ")}</span></div>
+          <div class="doctor-meta"><span>◷ Timing: ${(d.preferredTimes || ["Any available time"]).join(", ")}</span></div>
           <button class="book-btn" type="button" onclick="openBooking(${d.id})">Book appointment →</button>
         </div>
       </article>`).join("");
@@ -192,13 +195,66 @@
     const y=date.getFullYear(), m=String(date.getMonth()+1).padStart(2,"0"), d=String(date.getDate()).padStart(2,"0");
     return `${y}-${m}-${d}`;
   }
+  function isDoctorOnLeave(date){
+    return !!selectedDoctorProfile &&
+      (selectedDoctorProfile.leaveDates || []).includes(dateKey(date));
+  }
+  function getPreferredTimesForDate(date){
+    if(!selectedDoctorProfile) return ["Morning","Evening","Any available time"];
+    const specialSessions=selectedDoctorProfile.specialSessions || {};
+    if(date && Object.prototype.hasOwnProperty.call(specialSessions,date)){
+      return specialSessions[date] || [];
+    }
+    return selectedDoctorProfile.preferredTimes || ["Any available time"];
+  }
+  function populatePreferredTimes(date, resetSelection=true){
+    const select=document.getElementById("visitTime");
+    const options=getPreferredTimesForDate(date);
+    select.innerHTML='<option value="">Select preferred time</option>';
+    options.forEach(time=>{
+      const option=document.createElement("option");
+      option.value=time;
+      option.textContent=time;
+      select.appendChild(option);
+    });
+    select.disabled=options.length===0;
+    if(resetSelection) select.value="";
+    if(date && selectedDoctorProfile && options.length===0){
+      const msg=document.getElementById("availabilityMessage");
+      msg.style.display="block";
+      msg.className="small rounded-3 p-2 text-danger bg-danger-subtle";
+      msg.textContent="No OP session has been configured for this date. Please contact the hospital to confirm availability.";
+    }
+  }
   function updateAvailabilityMessage(date){
     const message=document.getElementById("availabilityMessage");
     if(!date || !selectedDoctorProfile){message.style.display="none";return;}
     const weekday=new Date(date+"T12:00:00").toLocaleDateString("en-US",{weekday:"long"});
+    const selectedTime=document.getElementById("visitTime").value;
     message.style.display="block";
+    if((selectedDoctorProfile.leaveDates || []).includes(date)){
+      message.className="small rounded-3 p-2 text-danger bg-danger-subtle";
+      message.textContent="The doctor is on leave on this date. Please select another available date.";
+      return;
+    }
+    if(!selectedDoctorProfile.days.includes(weekday)){
+      message.className="small rounded-3 p-2 text-danger bg-danger-subtle";
+      message.textContent="The doctor does not consult on "+weekday+". Please select another consulting date.";
+      return;
+    }
+    const validTimes=getPreferredTimesForDate(date);
+    if(validTimes.length===0){
+      message.className="small rounded-3 p-2 text-danger bg-danger-subtle";
+      message.textContent="No OP session has been configured for this date. Please contact the hospital to confirm availability.";
+      return;
+    }
+    if(selectedTime && !validTimes.includes(selectedTime)){
+      message.className="small rounded-3 p-2 text-danger bg-danger-subtle";
+      message.textContent="The selected OP time is not available on this date. Please choose one of the displayed times.";
+      return;
+    }
     message.className="small rounded-3 p-2 text-success bg-success-subtle";
-    message.textContent="This doctor is scheduled to consult on "+weekday+". You may continue with your appointment request. Final confirmation is subject to clinic availability.";
+    message.textContent="The doctor is scheduled on "+weekday+". Available OP time"+(validTimes.length>1?"s are: ":" is: ")+validTimes.join(", ")+". Please select your preferred time. Final confirmation is subject to clinic availability.";
   }
   function renderCalendar(){
     document.getElementById("calendarMonth").textContent=calendarMonth.toLocaleDateString("en-US",{month:"long",year:"numeric"});
@@ -212,23 +268,29 @@
       const date=new Date(calendarMonth.getFullYear(),calendarMonth.getMonth(),day);
       const weekday=date.toLocaleDateString("en-US",{weekday:"long"});
       const isConsultingDay=!selectedDoctorProfile || selectedDoctorProfile.days.includes(weekday);
+      const isLeaveDate=isDoctorOnLeave(date);
       const isPast=date<today;
       const button=document.createElement("button");
       button.type="button"; button.className="calendar-day"; button.textContent=day;
-      button.disabled=isPast || !isConsultingDay;
-      button.setAttribute("aria-label",date.toDateString()+(button.disabled?" — unavailable":" — available"));
+      button.disabled=isPast || !isConsultingDay || isLeaveDate;
+      if(isLeaveDate) button.classList.add("leave-day");
+      const unavailableReason=isPast?"past date":(isLeaveDate?"doctor on leave":(!isConsultingDay?"non-consulting day":"available"));
+      button.setAttribute("aria-label",date.toDateString()+" — "+unavailableReason);
+      if(isLeaveDate) button.title="Doctor is on leave";
       if(dateInput.value===dateKey(date))button.classList.add("selected");
       button.addEventListener("click",()=>{
         if(button.disabled)return;
         dateInput.value=dateKey(date);
         dateInput.setAttribute("aria-expanded","false");
         datePicker.hidden=true;
+        populatePreferredTimes(dateInput.value,true);
         updateAvailabilityMessage(dateInput.value);
         renderCalendar();
       });
       calendarDays.appendChild(button);
     }
   }
+  document.getElementById("visitTime").addEventListener("change",()=>updateAvailabilityMessage(dateInput.value));
   dateInput.addEventListener("click",()=>{
     datePicker.hidden=!datePicker.hidden;
     dateInput.setAttribute("aria-expanded",String(!datePicker.hidden));
@@ -260,6 +322,7 @@
     calendarMonth=new Date(today.getFullYear(),today.getMonth(),1);
     document.getElementById("selectedDoctor").value=doctor.name+" — "+doctor.specialty;
     document.getElementById("modalDoctorName").textContent=doctor.name;
+    populatePreferredTimes("",true);
     modal.show();
   }
   function openGeneralRequest(){
@@ -270,6 +333,7 @@
     document.getElementById("availabilityMessage").style.display="none";
     document.getElementById("selectedDoctor").value="No specific doctor selected";
     document.getElementById("modalDoctorName").textContent="General appointment request";
+    populatePreferredTimes("",true);
     modal.show();
   }
   document.getElementById("bookingForm").addEventListener("submit",e=>{
@@ -277,10 +341,31 @@
     const name=document.getElementById("patientName").value.trim();
     const phone=document.getElementById("patientPhone").value.trim();
     const date=document.getElementById("visitDate").value;
-    if(!name||!phone||!date)return;
+    const preferredTime=document.getElementById("visitTime").value;
+    if(!name || !phone || !date || !preferredTime){
+      document.getElementById("availabilityMessage").style.display="block";
+      document.getElementById("availabilityMessage").className="small rounded-3 p-2 text-danger bg-danger-subtle";
+      document.getElementById("availabilityMessage").textContent="Please complete the patient details, appointment date and preferred OP time.";
+      return;
+    }
     if(selectedDoctorProfile){
       const weekday=new Date(date+"T12:00:00").toLocaleDateString("en-US",{weekday:"long"});
-      if(!selectedDoctorProfile.days.includes(weekday))return;
+      const isLeave=(selectedDoctorProfile.leaveDates || []).includes(date);
+      const isConsulting=selectedDoctorProfile.days.includes(weekday);
+      const validTimes=getPreferredTimesForDate(date);
+      if(isLeave || !isConsulting || !validTimes.includes(preferredTime)){
+        const msg=document.getElementById("availabilityMessage");
+        msg.style.display="block";
+        msg.className="small rounded-3 p-2 text-danger bg-danger-subtle";
+        msg.textContent=isLeave
+          ? "The doctor is on leave on this date. Please select another available date."
+          : (!isConsulting
+            ? "The doctor does not consult on this weekday. Please select another consulting date."
+            : "The selected OP time is not available on this date. Please choose an available time.");
+        dateInput.value="";
+        populatePreferredTimes("",true);
+        return;
+      }
     }
     const details=[
       "Hello, I would like to request a doctor appointment.",
@@ -288,8 +373,9 @@
       "Doctor: "+document.getElementById("selectedDoctor").value,
       "Patient name: "+name,
       "Patient mobile: "+phone,
+      "OP number: "+(document.getElementById("opNumber").value.trim()||"Not provided"),
       "Preferred date: "+date,
-      "Preferred time: "+document.getElementById("visitTime").value,
+      "Preferred time: "+preferredTime,
       "Reason: "+(document.getElementById("reason").value.trim()||"Not provided"),
       "",
       "Please confirm availability and appointment time."
