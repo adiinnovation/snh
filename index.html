@@ -76,7 +76,7 @@
 
   <section class="hero">
     <!--<div class="eyebrow">Simple • Secure • Convenient</div>-->
-    <h1>Find the right doctor<br>for your health.</h1>
+    <h1>Find the doctor<br>for your health.</h1>
     <p>Choose a specialist and send your appointment request in just a few steps.</p>
     <div class="search-wrap">
       <span class="search-icon">⌕</span>
@@ -254,7 +254,7 @@
       return;
     }
     message.className="small rounded-3 p-2 text-success bg-success-subtle";
-    message.textContent="The doctor is scheduled on "+weekday+". Available OP time"+(validTimes.length>1?"s are: ":" is: ")+validTimes.join(", ")+". Please select your preferred time. Final confirmation is subject to clinic availability.";
+    message.textContent="The doctor is scheduled on "+weekday+". Available OP time"+(validTimes.length>1?"s are: ":" is: ")+validTimes.join(", ")+". Please select your preferred time. Final confirmation is subject to hospital availability.";
   }
   function renderCalendar(){
     document.getElementById("calendarMonth").textContent=calendarMonth.toLocaleDateString("en-US",{month:"long",year:"numeric"});
