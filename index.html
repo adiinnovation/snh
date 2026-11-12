@@ -85,35 +85,21 @@
   </section>
 
 <section class="section">
-  <div class="section-head">
-    <div>
-      <h2>Explore Specialities</h2>
-      <div class="section-sub">Choose or type a department to get started</div>
+    <div class="section-head"><div><h2>Explore Specialities</h2><div class="section-sub">Choose a department to get started</div></div></div>
+    <div class="filter-row" id="filters">
+      <button class="filter-btn active" data-filter="All">All doctors</button>
+      <button class="filter-btn" data-filter="General Medicine">General</button>
+      <button class="filter-btn" data-filter="Pediatricics">Pediatricics</button>
+      <button class="filter-btn" data-filter="Gynaecology">Gynaecology</button>
+      <button class="filter-btn" data-filter="Dental">Dental</button>
+      <button class="filter-btn" data-filter="Casualty RMO">Casualty RMO</button>
+      <button class="filter-btn" data-filter="Gastro">Gastro</button>
     </div>
-  </div>
+  </section>
 
-  <div class="filter-row" id="filters">
-    <input 
-      type="text" 
-      id="specialty-combobox" 
-      class="filter-combobox" 
-      list="specialty-options" 
-      placeholder="Search or select a department..." 
-      value="All doctors"
-      autocomplete="off"
-    />
-    
-    <datalist id="specialty-options">
-      <option value="All doctors" data-filter="All"></option>
-      <option value="General" data-filter="General Medicine"></option>
-      <option value="Pediatrics" data-filter="Pediatrics"></option>
-      <option value="Gynaecology" data-filter="Gynaecology"></option>
-      <option value="Dental" data-filter="Dental"></option>
-      <option value="Casualty RMO" data-filter="Casualty RMO"></option>
-      <option value="Gastro" data-filter="Gastro"></option>
-    </datalist>
-  </div>
-</section>
+
+
+  
 
   <section class="section pt-2">
     <div class="section-head">
